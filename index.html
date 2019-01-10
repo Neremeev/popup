@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body{
+      margin: 0;
+
+    }
+    a{
+      color: white;
+      text-decoration: none;
+    }
+    button{
+      position: absolute;
+      left:0;
+      top:0;
+
+    }
+
+    .popup{
+      position: absolute;
+      width: 60%;
+      height: 60%;
+      background: red;
+      left:20%;
+      top:1%;
+      z-index:6;
+      transition:1s;
+      transform: translateY(-105%);
+    }
+    .hover_body{
+      position: absolute;
+      background:#a0a0a0;
+      width:100vw;
+      height:100vh;
+      z-index:0;
+      opacity: 0;
+    }
+    .header a{
+      position:relative;
+
+      right: 10px;
+    }
+    .header{
+      position: relative;
+      width:100%;
+      text-align: right;
+    }
+    .popup--active{
+      position: absolute;
+      width: 60%;
+      height: 60%;
+      background: red;
+      left:20%;
+      top:1%;
+      z-index: 6;
+      transition: 1s;
+    }
+    .hover_body:active{
+      position: absolute;
+      background:#a0a0a0;
+      width:100vw;
+      height:100vh;
+      z-index:0;
+      opacity: 0.5;
+    }
+    button:active{
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class='hover_body' id='hover' onclick='popUpHide()'></div>
+  <button onclick="popUp()" id='button'>Open PopUp</button><a href='' id='f' onclick='hello()'>hello</a>
+  <div class='popup' id='popup'>
+    <div class='header'> <a href='#'onclick='popUpHide()'>x</a></div>
+    <div class='body'></div>
+    <div class='footer'></div>
+  </div>
+
+  <script>
+      function popUp(){
+          document.getElementById('popup').className = 'popup--active';
+          document.getElementById('hover').className = 'hover_body--active';
+          document.getElementById('button').className = 'button--active';
+      }
+      function popUpHide(){
+          if(document.getElementById('popup').classList.contains("popup--active")){
+              document.getElementById('popup').className = 'popup';
+              document.getElementById('hover').className = 'hover_body';
+              document.getElementById('button').className = '';
+          }
+      }
+  </script>
+</body>
+</html>
