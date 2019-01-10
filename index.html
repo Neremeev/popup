@@ -93,6 +93,12 @@
               document.getElementById('button').className = '';
           }
       }
+    
+      window.onclick = function(e) {
+        if(!e.target.classList.contains("popup--active") && !e.target.classList.contains("button--active")) {
+            document.getElementById('popup').className = 'popup';
+        }
+      }
   </script>
 </body>
 </html>
